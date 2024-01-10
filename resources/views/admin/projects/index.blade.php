@@ -32,7 +32,7 @@
                   <td>
                     <a href="{{ route('admin.projects.edit',$project) }}">edit</a>
                   </td>
-                  
+
                   <td>
                     <form action="{{ route('admin.projects.destroy',$project)}}" method="POST">
                       @csrf
@@ -41,7 +41,6 @@
                       <input class="btn btn-danger btn-sm" type="submit" value="delete">
                     </form>
                   </td>
-
                   <td>
                     @if($project->type)
                   <p>
@@ -52,6 +51,13 @@
                   @endif
                   </td>
 
+                  <td>
+                    <ul class="d-flex gap-2 ps-0">
+                      @foreach ($project->technologies as $technology)
+                        <li class="badge rounded-pill text-bg-primary">{{ $technology->name }}</li>
+                      @endforeach 
+                    </ul>
+                  </td>
                 </tr>
             @empty
                 <tr>
