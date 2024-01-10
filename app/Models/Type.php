@@ -12,7 +12,7 @@ class Type extends Model
     // aggiungere ai model Type e Project i metodi per definire la relazione one to many (hasMany e belongsTo)
     protected $fillable = ['name', 'slug'];
 
-    public function project()
+    public function projects()
     {
         return $this->hasMany(Project::class);
     }

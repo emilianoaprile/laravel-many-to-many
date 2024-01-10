@@ -32,6 +32,7 @@
                   <td>
                     <a href="{{ route('admin.projects.edit',$project) }}">edit</a>
                   </td>
+                  
                   <td>
                     <form action="{{ route('admin.projects.destroy',$project)}}" method="POST">
                       @csrf
@@ -39,6 +40,16 @@
 
                       <input class="btn btn-danger btn-sm" type="submit" value="delete">
                     </form>
+                  </td>
+
+                  <td>
+                    @if($project->type)
+                  <p>
+                    <strong>
+                    {{ $project->type->name }}
+                    </strong>
+                  </p>
+                  @endif
                   </td>
 
                 </tr>
